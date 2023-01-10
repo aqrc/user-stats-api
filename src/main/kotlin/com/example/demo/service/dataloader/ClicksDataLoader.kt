@@ -12,9 +12,9 @@ class ClicksDataLoader(resourceLoader: ResourceLoader) : ResourceDataLoader<Clic
     override fun parseLine(line: String): Click {
         return line.split(",").let {
             Click(
-                it[0].toLong(),
-                UUID.fromString(it[1]),
-                it[2].toInt()
+                timestamp = it[0].toLong(),
+                sessionId = UUID.fromString(it[1]),
+                timePassedBeforeClick = it[2].toInt()
             )
         }
     }

@@ -12,12 +12,12 @@ class RequestsDataLoader(resourceLoader: ResourceLoader) : ResourceDataLoader<Re
     override fun parseLine(line: String): Request {
         return line.split(",").let {
             Request(
-                it[0].toLong(),
-                UUID.fromString(it[1]),
-                it[2],
-                UUID.fromString(it[3]),
-                it[4].toFloat(),
-                it[5].toBoolean()
+                timestamp = it[0].toLong(),
+                sessionId = UUID.fromString(it[1]),
+                partnerName = it[2],
+                userId = UUID.fromString(it[3]),
+                bid = it[4].toFloat(),
+                win = it[5].toBoolean(),
             )
         }
     }

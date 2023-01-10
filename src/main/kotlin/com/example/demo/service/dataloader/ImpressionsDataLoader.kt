@@ -12,9 +12,9 @@ class ImpressionsDataLoader(resourceLoader: ResourceLoader) : ResourceDataLoader
     override fun parseLine(line: String): Impression {
         return line.split(",").let {
             Impression(
-                it[0].toLong(),
-                UUID.fromString(it[1]),
-                it[2].toInt()
+                timestamp = it[0].toLong(),
+                sessionId = UUID.fromString(it[1]),
+                duration = it[2].toInt(),
             )
         }
     }
